@@ -1,0 +1,6 @@
+framework module SwiftPipes {
+  umbrella header "SwiftPipes-umbrella.h"
+
+  export *
+  module * { export * }
+}
