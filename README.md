@@ -1,6 +1,6 @@
 # SwiftPipes
 
-[![CI Status](http://img.shields.io/travis/Tim Bodeit/SwiftPipes.svg?style=flat)](https://travis-ci.org/Tim Bodeit/SwiftPipes)
+[![CI Status](http://img.shields.io/travis/timbodeit/SwiftPipes.svg?style=flat)](https://travis-ci.org/timbodeit/SwiftPipes)
 [![Version](https://img.shields.io/cocoapods/v/SwiftPipes.svg?style=flat)](http://cocoapods.org/pods/SwiftPipes)
 [![License](https://img.shields.io/cocoapods/l/SwiftPipes.svg?style=flat)](http://cocoapods.org/pods/SwiftPipes)
 [![Platform](https://img.shields.io/cocoapods/p/SwiftPipes.svg?style=flat)](http://cocoapods.org/pods/SwiftPipes)
