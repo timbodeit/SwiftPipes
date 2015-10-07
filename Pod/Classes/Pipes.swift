@@ -50,7 +50,7 @@ Try piping the optional input into the function on the right.
 
 Result is nil if lhs is nil. Otherwise, same as `|>`
 */
-public func |?> <A, B>(lhs: A, rhs: A -> B) -> B? {
+public func |?> <A, B>(lhs: A?, rhs: A -> B) -> B? {
     return lhs
         |> map { rhs($0) }
 }
