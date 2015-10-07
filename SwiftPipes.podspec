@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = "SwiftPipes"
-  s.version          = "0.1.1"
+  s.version          = "0.1.2"
   s.summary          = "Pipes, currying, function composition for Swift"
 
   s.description      = <<-DESC

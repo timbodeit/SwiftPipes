@@ -1,5 +1,5 @@
 PODS:
-  - SwiftPipes (0.1.0)
+  - SwiftPipes (0.1.2)
 
 DEPENDENCIES:
   - SwiftPipes (from `../`)
@@ -9,6 +9,6 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  SwiftPipes: 2905dc99217c992b8210d361176a5e89a040125c
+  SwiftPipes: a5a7d571eef7c735a6f2fd249510887cbc08cf5f
 
 COCOAPODS: 0.39.0.beta.3
