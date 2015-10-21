@@ -59,8 +59,7 @@ public func |?> <A, B>(lhs: A?, rhs: A -> B) -> B? {
 /**
 Try piping the optional input into the function on the right.
 
-Result is nil if lhs is nil or rhs(lhs) is nil.
-Otherwise, the result is equivalent to rhs(lhs!)!
+Result is nil if lhs is nil. Otherwise, same as `rhs(lhs!)`.
 */
 public func |??><A, B>(lhs: A?, rhs: A -> B?) -> B? {
   return lhs |> flatMap { rhs($0) }
