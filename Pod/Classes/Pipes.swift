@@ -8,10 +8,11 @@
 
 import Foundation
 
-infix operator .. { precedence 50 associativity right }
-infix operator <| { precedence 50 associativity right }
-infix operator |> { precedence 50 associativity left }
-infix operator |?>  { precedence 50 associativity left }
+infix operator ..   { precedence 50 associativity right }
+infix operator <|   { precedence 50 associativity right }
+infix operator |>   { precedence 50 associativity left  }
+infix operator |?>  { precedence 50 associativity left  }
+infix operator |??> { precedence 50 associativity left  }
 
 /**
 Function composition.
@@ -53,4 +54,14 @@ Result is nil if lhs is nil. Otherwise, same as `|>`
 public func |?> <A, B>(lhs: A?, rhs: A -> B) -> B? {
     return lhs
         |> map { rhs($0) }
+}
+
+/**
+Try piping the optional input into the function on the right.
+
+Result is nil if lhs is nil or rhs(lhs) is nil.
+Otherwise, the result is equivalent to rhs(lhs!)!
+*/
+public func |??><A, B>(lhs: A?, rhs: A -> B?) -> B? {
+  return lhs |> flatMap { rhs($0) }
 }
