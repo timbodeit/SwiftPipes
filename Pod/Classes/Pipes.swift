@@ -8,11 +8,11 @@
 
 import Foundation
 
-infix operator ..   { precedence 50 associativity right }
-infix operator <|   { precedence 50 associativity right }
-infix operator |>   { precedence 50 associativity left  }
-infix operator |?>  { precedence 50 associativity left  }
-infix operator |??> { precedence 50 associativity left  }
+infix operator ..   { precedence 132 associativity right }
+infix operator <|   { precedence 132 associativity right }
+infix operator |>   { precedence 132 associativity left  }
+infix operator |?>  { precedence 132 associativity left  }
+infix operator |??> { precedence 132 associativity left  }
 
 /**
 Function composition.
