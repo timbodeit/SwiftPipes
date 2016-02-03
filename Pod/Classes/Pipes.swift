@@ -13,6 +13,7 @@ infix operator <|   { precedence 132 associativity right }
 infix operator |>   { precedence 132 associativity left  }
 infix operator |?>  { precedence 132 associativity left  }
 infix operator |??> { precedence 132 associativity left  }
+infix operator |?   { precedence 132 associativity left  }
 
 /**
 Function composition.
@@ -63,4 +64,15 @@ Result is nil if lhs is nil. Otherwise, same as `rhs(lhs!)`.
 */
 public func |??><A, B>(lhs: A?, rhs: A -> B?) -> B? {
   return lhs |> flatMap { rhs($0) }
+}
+
+/**
+Try piping the optional input into the side-effecting function on the right.
+
+Result is the input value.
+
+Equivalence: `a |? f` === `a |?> { a in f(a); return a }`
+*/
+public func |?<A>(lhs: A?, rhs: A -> ()) -> A? {
+  return lhs |?> { a in rhs(a); return a }
 }
