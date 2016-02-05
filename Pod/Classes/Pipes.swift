@@ -33,7 +33,7 @@ Pipe the input on the right into the function on the left.
 Chainable:
 `f <| g <| h <| x` == `f(g(h(x)`
 */
-public func <| <A, B>(lhs: A -> B, rhs: A) -> B {
+public func <| <A, B>(@noescape lhs: A -> B, rhs: A) -> B {
     return lhs(rhs)
 }
 
@@ -43,7 +43,7 @@ Pipe the input on the left into the function on the right.
 Chainable:
 `x |> f |> g |> h` == `h(g(f(x)))`
 */
-public func |> <A, B>(lhs: A, rhs: A -> B) -> B {
+public func |> <A, B>(lhs: A, @noescape rhs: A -> B) -> B {
     return rhs(lhs)
 }
 
@@ -52,9 +52,8 @@ Try piping the optional input into the function on the right.
 
 Result is nil if lhs is nil. Otherwise, same as `|>`
 */
-public func |?> <A, B>(lhs: A?, rhs: A -> B) -> B? {
-    return lhs
-        |> map { rhs($0) }
+public func |?> <A, B>(lhs: A?, @noescape rhs: A -> B) -> B? {
+  return lhs.map(rhs)
 }
 
 /**
@@ -62,8 +61,8 @@ Try piping the optional input into the function on the right.
 
 Result is nil if lhs is nil. Otherwise, same as `rhs(lhs!)`.
 */
-public func |??><A, B>(lhs: A?, rhs: A -> B?) -> B? {
-  return lhs |> flatMap { rhs($0) }
+public func |??><A, B>(lhs: A?, @noescape rhs: A -> B?) -> B? {
+  return lhs.flatMap(rhs)
 }
 
 /**
@@ -73,6 +72,6 @@ Result is the input value.
 
 Equivalence: `a |? f` === `a |?> { a in f(a); return a }`
 */
-public func |?<A>(lhs: A?, rhs: A -> ()) -> A? {
+public func |?<A>(lhs: A?, @noescape rhs: A -> ()) -> A? {
   return lhs |?> { a in rhs(a); return a }
 }
