@@ -13,8 +13,8 @@ Flip the first two arguments of a curried function
 
 Function of type `A -> B -> C` becomes `B -> A -> C`
 */
-public func flip<S, T, U>(inputFunction: (S -> T -> U)) -> T -> S -> U {
-    return { (t: T) -> (S -> U) in
+public func flip<S, T, U>(_ inputFunction: @escaping ((S) -> (T) -> U)) -> (T) -> (S) -> U {
+    return { (t: T) -> ((S) -> U) in
         return { (s: S) -> U in
             return inputFunction(s)(t)
         }

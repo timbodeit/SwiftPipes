@@ -10,7 +10,7 @@ Pipes, currying, function composition.
 
 ## Requirements
 
-This version of SwiftPipes is meant to be used with Swift 2.0
+This version of SwiftPipes is meant to be used with Swift 3.0
 
 ## Installation
 
